@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - BudgetBee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="material-symbols-outlined">hive</span>
+                BudgetBee
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="content-page container animate-on-scroll">
+        <div class="card content-card">
+            <h1>Request Account Deletion</h1>
+            
+            <div style="background-color: rgba(244, 67, 54, 0.1); border-left: 4px solid #f44336; padding: 16px; margin-bottom: 24px; border-radius: 4px;">
+                <strong>Warning:</strong> Deleting your account will permanently remove all your data, including tracked expenses, income, budgets, and personal information. This action <strong>cannot be undone</strong>.
+            </div>
+
+            <p>If you wish to proceed with deleting your BudgetBee account and all associated data, please fill out the form below. For Google Play compliance, we ensure that your data is securely and permanently deleted from our servers within 14 business days of your request.</p>
+            
+            <form action="mailto:support@budgetbee.app" method="post" enctype="text/plain" style="margin-top: 32px;">
+                <div class="form-group">
+                    <label class="form-label" for="email">Registered Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="reason">Reason for Deletion (Optional)</label>
+                    <textarea id="reason" name="reason" class="form-control" placeholder="Please let us know why you are leaving so we can improve..."></textarea>
+                </div>
+                
+                <div class="form-group" style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 32px;">
+                    <input type="checkbox" id="confirm" name="confirm" required style="margin-top: 6px; transform: scale(1.2);">
+                    <label for="confirm" style="color: var(--text-secondary); font-size: 0.95rem;">
+                        I understand that my account and all associated financial data will be permanently deleted and cannot be recovered. I agree to proceed.
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="background-color: #ef4444; width: 100%;">
+                    <span class="material-symbols-outlined">delete_forever</span>
+                    Permanently Delete My Account
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="margin-top: 0; padding-top: 20px;">
+                &copy; 2026 BudgetBee. All rights reserved. | <a href="terms.html">Terms</a> | <a href="privacy-policy.html">Privacy</a><br>
+                <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 8px; display: inline-block;">A product of <strong>M-Three Creatives.</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

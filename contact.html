@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BudgetBee</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="material-symbols-outlined">hive</span>
+                BudgetBee
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="contact.html" style="color: var(--primary-color);">Contact</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="content-page container animate-on-scroll" style="flex: 1;">
+        <div class="section-title">
+            <h1 style="margin-bottom: 16px;">Get in Touch</h1>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Have questions, feedback, or need support? Reach out to us directly via Email or WhatsApp.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tirth.rathod94@gmail.com" target="_blank" rel="noopener noreferrer" class="card" style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; color: var(--text-primary);">
+                <span class="material-symbols-outlined" style="color: #ea4335; font-size: 48px;">mail</span>
+                <div>
+                    <h3 style="margin-bottom: 8px;">Email Support</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 1.1rem;">tirth.rathod94@gmail.com</p>
+                </div>
+            </a>
+            
+            <a href="https://wa.me/918980238802" target="_blank" rel="noopener noreferrer" class="card" style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; color: var(--text-primary);">
+                <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 48px;"></i>
+                <div>
+                    <h3 style="margin-bottom: 8px;">WhatsApp Support</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 1.1rem;">8980238802</p>
+                </div>
+            </a>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; 2026 BudgetBee. All rights reserved. | <a href="terms.html">Terms</a> | <a href="privacy-policy.html">Privacy</a><br>
+                <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 8px; display: inline-block;">A product of <strong>M-Three Creatives.</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetBee - Smart Personal Finance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="material-symbols-outlined">hive</span>
+                BudgetBee
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#features">Features</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container animate-on-scroll">
+            <h1>Master Your Money with BudgetBee</h1>
+            <p>Track your income, manage your expenses, and achieve your financial goals securely. Experience personal finance made simple, beautiful, and organized.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px;">
+                <button class="btn btn-primary">
+                    <span class="material-symbols-outlined">android</span>
+                    Get it on Google Play
+                </button>
+                <a href="contact.html" class="btn btn-outline">Contact Support</a>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title animate-on-scroll">Why Choose BudgetBee?</h2>
+            <div class="features-grid">
+                <div class="card feature-card animate-on-scroll">
+                    <span class="material-symbols-outlined">account_balance_wallet</span>
+                    <h3>Expense Tracking</h3>
+                    <p>Easily log your daily expenses and categorize them to see exactly where your money goes.</p>
+                </div>
+                <div class="card feature-card animate-on-scroll">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <h3>Insightful Reports</h3>
+                    <p>Visualize your financial health with beautiful charts and actionable insights.</p>
+                </div>
+                <div class="card feature-card animate-on-scroll">
+                    <span class="material-symbols-outlined">security</span>
+                    <h3>Secure & Private</h3>
+                    <p>Your financial data is encrypted and stays on your device. We prioritize your privacy above all else.</p>
+                </div>
+                <div class="card feature-card animate-on-scroll">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                    <h3>Beautiful Dark Mode</h3>
+                    <p>Easy on the eyes. Enjoy a seamlessly integrated dark mode tailored to your system preferences.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 16px;">
+                        <span class="material-symbols-outlined">hive</span> BudgetBee
+                    </a>
+                    <p style="color: var(--text-secondary);">Empowering your financial journey, one bee at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="delete-account.html">Delete Account</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 BudgetBee. All rights reserved.<br>
+                <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 8px; display: inline-block;">A product of <strong>M-Three Creatives.</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
