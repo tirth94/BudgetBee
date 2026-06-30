@@ -4,70 +4,495 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - BudgetBee</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --primary-color: #10b981;
+            --primary-hover: #059669;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --radius-md: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--surface-color);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .theme-toggle:hover { background-color: var(--border-color); color: var(--text-primary); }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        /* Sidebar TOC */
+        .toc {
+            width: 300px;
+            background-color: var(--surface-color);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 100px;
+            flex-shrink: 0;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .toc ul { list-style: none; }
+        .toc li { margin-bottom: 8px; }
+        .toc a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        .toc a:hover, .toc a.active {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        .content .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section { margin-bottom: 48px; scroll-margin-top: 100px; }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p { margin-bottom: 16px; }
+        
+        ul.list {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+        ul.list li { margin-bottom: 8px; }
+
+        .highlight-box {
+            background-color: rgba(16, 185, 129, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 16px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 16px;
+        }
+
+        /* Back to top */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        #back-to-top.show { opacity: 1; visibility: visible; }
+        #back-to-top:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container { flex-direction: column; }
+            .toc { width: 100%; position: static; max-height: none; margin-bottom: 24px; }
+            .content { padding: 24px; }
+        }
+
+        /* Print formatting */
+        @media print {
+            .toc, header, #back-to-top, footer { display: none !important; }
+            body, .content { background: white; color: black; box-shadow: none; border: none; }
+            .container { margin: 0; padding: 0; width: 100%; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <span class="material-symbols-outlined">hive</span>
-                BudgetBee
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
-                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
-            </button>
-        </div>
+        <a href="index.html" class="logo">
+            <span class="material-symbols-outlined">hive</span>
+            BudgetBee
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+        </button>
     </header>
 
-    <main class="content-page container animate-on-scroll">
-        <div class="card content-card">
-            <h1>Privacy Policy</h1>
-            <p><strong>Last Updated:</strong> June 30, 2026</p>
-            
-            <p>At BudgetBee, we prioritize your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application and website.</p>
-
-            <h2>1. Information We Collect</h2>
-            <p><strong>Personal Data:</strong> When you register an account, we may collect your name, email address, and authentication credentials.</p>
-            <p><strong>Financial Data:</strong> Any income, expenses, categories, or budget data you input is stored locally on your device or securely synced to our encrypted Google Firebase services, depending on your settings.</p>
-            <p><strong>Usage Data:</strong> We automatically collect diagnostic data such as app crash logs, device model, operating system version, and general app usage statistics to improve our service.</p>
-
-            <h2>2. How We Use Your Information</h2>
-            <ul>
-                <li>To provide, maintain, and improve the BudgetBee application.</li>
-                <li>To synchronize your data across multiple devices (if enabled).</li>
-                <li>To respond to your customer support requests.</li>
+    <div class="container">
+        <!-- Table of Contents -->
+        <aside class="toc">
+            <h3>Table of Contents</h3>
+            <ul id="toc-list">
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#information-we-collect">2. Information We Collect</a></li>
+                <li><a href="#google-sign-in">3. Google Sign-In</a></li>
+                <li><a href="#guest-mode">4. Guest Mode</a></li>
+                <li><a href="#how-we-use">5. How We Use Information</a></li>
+                <li><a href="#offline-cloud">6. Offline Storage & Cloud Sync</a></li>
+                <li><a href="#feedback">7. Feedback</a></li>
+                <li><a href="#third-party">8. Third-Party Services</a></li>
+                <li><a href="#data-security">9. Data Security</a></li>
+                <li><a href="#childrens-privacy">10. Children's Privacy</a></li>
+                <li><a href="#international">11. International Users</a></li>
+                <li><a href="#data-retention">12. Data Retention</a></li>
+                <li><a href="#deletion">13. Account & Data Deletion</a></li>
+                <li><a href="#changes">14. Changes to This Privacy Policy</a></li>
+                <li><a href="#contact">15. Contact Information</a></li>
             </ul>
+        </aside>
 
-            <h2>3. Data Storage and Security</h2>
-            <p> Data in transit is secured using HTTPS/TLS protocols.</p>
+        <!-- Main Privacy Policy Content -->
+        <main class="content">
+            <h1>Privacy Policy</h1>
+            <div class="meta">
+                <p><strong>App Name:</strong> BudgetBee (com.mthreecreatives.budgetbee)</p>
+                <p><strong>Developer:</strong> M-Three Creatives</p>
+                <p><strong>Effective Date:</strong> June 30, 2026</p>
+            </div>
 
-            <h2>4. Third-Party Services</h2>
-            <p>We use Firebase Authentication and Firebase Firestore to provide secure account authentication and cloud data synchronization.</p>
+            <section id="introduction">
+                <h2>1. Introduction</h2>
+                <p>M-Three Creatives ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Android mobile application, BudgetBee ("the App").</p>
+                <p>BudgetBee is a personal finance and expense tracking application designed to help you securely manage your personal financial records, track income and expenses, and categorize your transactions.</p>
+                <p>By downloading, accessing, or using BudgetBee, you agree to the collection and use of your information in accordance with this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use the application.</p>
+            </section>
 
-            <h2>5. Your Rights</h2>
-            <p>You have the right to access, modify, or permanently delete your personal data. You can initiate an account deletion directly from the <a href="delete-account.html">Delete Account</a> page or within the mobile app settings.</p>
+            <section id="information-we-collect">
+                <h2>2. Information We Collect</h2>
+                <p>To provide you with our core personal finance tracking features, we may collect the following types of information:</p>
+                
+                <div class="highlight-box">
+                    <strong>Application Data:</strong>
+                    <ul class="list" style="margin-top: 8px; margin-bottom: 0;">
+                        <li>Income and expenses</li>
+                        <li>Custom categories created by you</li>
+                        <li>Notes attached to transactions</li>
+                        <li>User preferences and settings</li>
+                        <li>Feedback submitted directly through the App's Contact page</li>
+                    </ul>
+                </div>
 
-            <h2>6. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                <p><strong>What we DO NOT collect:</strong></p>
+                <ul class="list">
+                    <li>Phone numbers, SMS, or contacts</li>
+                    <li>Camera photos, gallery images, or audio recordings</li>
+                    <li>Device location data (GPS)</li>
+                    <li>Calendar data or health information</li>
+                    <li>Payment card information or bank account credentials</li>
+                </ul>
+            </section>
 
-            <h2>7. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please <a href="contact.html">contact us</a>.</p>
-        </div>
-    </main>
+            <section id="google-sign-in">
+                <h2>3. Google Sign-In</h2>
+                <p>BudgetBee supports authentication exclusively via Google Sign-In. When you choose to log in using your Google account, we collect the following basic profile information provided by Google:</p>
+                <ul class="list">
+                    <li>Your Name</li>
+                    <li>Your Email Address</li>
+                    <li>Your Profile Picture</li>
+                </ul>
+                <p>We do not support email/password login, phone number login, or anonymous login procedures.</p>
+            </section>
+
+            <section id="guest-mode">
+                <h2>4. Guest Mode</h2>
+                <p>BudgetBee offers a Guest Mode for users who prefer not to authenticate with a Google account. While using Guest Mode, your financial data is strictly stored locally on your device. However, certain cloud synchronization features will not be available until you authenticate.</p>
+            </section>
+
+            <section id="how-we-use">
+                <h2>5. How We Use Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul class="list">
+                    <li>To provide, maintain, and operate the BudgetBee application.</li>
+                    <li>To authenticate your identity using Google Sign-In.</li>
+                    <li>To securely synchronize your personal financial data across your devices.</li>
+                    <li>To process and review feedback submitted through the App.</li>
+                </ul>
+            </section>
+
+            <section id="offline-cloud">
+                <h2>6. Offline Storage & Cloud Sync</h2>
+                <p>BudgetBee fully supports offline usage. If you add, edit, or delete financial records without an active internet connection, your data is securely stored locally on your device.</p>
+                <p>Once your device regains internet connectivity, the application automatically and securely synchronizes your local changes with our cloud infrastructure (Cloud Firestore) to ensure your data remains backed up and accessible across your authenticated devices.</p>
+            </section>
+
+            <section id="feedback">
+                <h2>7. Feedback</h2>
+                <p>Users have the option to submit feedback or support requests from inside the BudgetBee application. Any information you voluntarily provide in these feedback submissions is securely transmitted and stored in Cloud Firestore for our development team to review and act upon.</p>
+            </section>
+
+            <section id="third-party">
+                <h2>8. Third-Party Services</h2>
+                <p>To operate our application effectively, BudgetBee integrates with specific third-party services provided by Google. We use ONLY the following services:</p>
+                <ul class="list">
+                    <li><strong>Google Sign-In:</strong> For secure user authentication.</li>
+                    <li><strong>Firebase Authentication:</strong> To manage secure user sessions and identities.</li>
+                    <li><strong>Cloud Firestore:</strong> A NoSQL cloud database used to securely store and synchronize your financial data, categories, notes, preferences, and feedback.</li>
+                </ul>
+                <p>We <strong>do not</strong> use or integrate Google Analytics, Firebase Analytics, Crashlytics, Performance Monitoring, or Google AdMob. The current version of BudgetBee does not display advertisements, track analytics, or send push notifications.</p>
+            </section>
+
+            <section id="data-security">
+                <h2>9. Data Security</h2>
+                <p>The security of your financial data is our highest priority. We implement industry-standard security practices to protect your information, including:</p>
+                <ul class="list">
+                    <li><strong>Secure Communication:</strong> All data transmitted between your device and our servers is secured using HTTPS protocols.</li>
+                    <li><strong>Firebase Security Rules:</strong> We utilize strict Cloud Firestore Security Rules to ensure that your data can only be accessed and modified by your authenticated account.</li>
+                    <li><strong>Authentication:</strong> Leveraging Firebase Authentication ensures robust, standardized security for user sessions.</li>
+                </ul>
+                <p>While we strive to use commercially acceptable means to protect your personal data, please be aware that no method of transmission over the internet or method of electronic storage is 100% secure.</p>
+            </section>
+
+            <section id="childrens-privacy">
+                <h2>10. Children's Privacy</h2>
+                <p>BudgetBee is not intended for use by children under 13 years of age. We do not knowingly collect personal identifiable information from children under 13. If we discover that a child under 13 has provided us with personal information, we will immediately delete this data from our servers.</p>
+            </section>
+
+            <section id="international">
+                <h2>11. International Users</h2>
+                <p>BudgetBee may be used worldwide. By accessing the application and providing your information, you acknowledge that your data will be processed and stored on Google’s secure cloud infrastructure, which may involve the transfer of data to jurisdictions outside your country of residence.</p>
+            </section>
+
+            <section id="data-retention">
+                <h2>12. Data Retention</h2>
+                <p>We retain your personal information and financial data only for as long as your BudgetBee account remains active. Once you request account deletion, your data is permanently removed from our active database systems.</p>
+            </section>
+
+            <section id="deletion">
+                <h2>13. Account & Data Deletion</h2>
+                <p>You have full control over your data. You can permanently delete your BudgetBee account and all associated financial records directly from within the application.</p>
+                <p>Upon triggering the deletion process, your authentication profile and all related Cloud Firestore documents (income, expenses, categories, notes) are immediately and permanently erased from our servers. This action cannot be undone.</p>
+            </section>
+
+            <section id="changes">
+                <h2>14. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted.</p>
+            </section>
+
+            <section id="contact">
+                <h2>15. Contact Information</h2>
+                <p>If you have any questions, concerns, or suggestions regarding this Privacy Policy or our privacy practices, please contact us at:</p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:tirth.rathod94@gmail.com">tirth.rathod94@gmail.com</a><br>
+                    <strong>Developer:</strong> M-Three Creatives<br>
+                    <strong>Website:</strong> <a href="https://example.com" target="_blank">[Website URL to be added]</a>
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <button id="back-to-top" aria-label="Back to top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
 
     <footer>
-        <div class="container">
-            <div class="footer-bottom" style="margin-top: 0; padding-top: 20px;">
-                &copy; 2026 BudgetBee. All rights reserved. | <a href="terms.html">Terms</a> | <a href="privacy-policy.html">Privacy</a><br>
-                <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 8px; display: inline-block;">A product of <strong>M-Three Creatives.</strong></span>
-            </div>
-        </div>
+        <p>&copy; 2026 BudgetBee. A product of <strong>M-Three Creatives.</strong> All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Dark Mode Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+                if (currentTheme === 'dark' && themeIcon) themeIcon.textContent = 'light_mode';
+            } else {
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                if (prefersDarkScheme.matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    if (themeIcon) themeIcon.textContent = 'light_mode';
+                }
+            }
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    let theme = document.documentElement.getAttribute('data-theme');
+                    let targetTheme = theme === 'dark' ? 'light' : 'dark';
+                    
+                    document.documentElement.setAttribute('data-theme', targetTheme);
+                    localStorage.setItem('theme', targetTheme);
+                    
+                    if (themeIcon) {
+                        themeIcon.textContent = targetTheme === 'dark' ? 'light_mode' : 'dark_mode';
+                    }
+                });
+            }
+
+            // Scrollspy / Active Navigation Highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.toc a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth scroll for TOC links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
