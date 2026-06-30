@@ -81,6 +81,21 @@
         }
         .theme-toggle:hover { background-color: var(--border-color); color: var(--text-primary); }
 
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        @media (max-width: 768px) { .nav-links { display: none; } }
+
         /* Layout */
         .container {
             max-width: 1200px;
@@ -235,6 +250,13 @@
             <span class="material-symbols-outlined">hive</span>
             BudgetBee
         </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact</a>
+        </nav>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
             <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
         </button>
